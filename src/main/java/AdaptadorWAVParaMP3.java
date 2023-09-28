@@ -7,6 +7,11 @@ public class AdaptadorWAVParaMP3 implements ReprodutorAudio {
 
     @Override
     public void reproduzir(String arquivo) {
-        reprodutorWAV.reproduzirWAV(arquivo);
+        String arquivoConvertido = converterWAVParaMP3(arquivo);
+        reprodutorWAV.reproduzirWAV(arquivoConvertido);
+    }
+
+    private String converterWAVParaMP3(String arquivoWAV) {
+        return arquivoWAV.replace(".wav", ".mp3");
     }
 }
